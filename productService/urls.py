@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView # Importamos las vistas de Swagger
-from .views import ProductViewSet
+from apiProduct.views import ProductViewSet
 
 router = DefaultRouter()
 router.register(r'products', ProductViewSet)
