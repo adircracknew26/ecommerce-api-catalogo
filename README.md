@@ -15,7 +15,7 @@ Este proyecto es un microservicio desarrollado en Django y Django REST Framework
 
 Sigue estos pasos para levantar el microservicio en tu máquina local:
 
-1. **Clonar el repositorio:** ```bash
+1. **Clonar el repositorio:**
    cd ecommerce-api-catalogo
 Instalar las dependencias:
 
