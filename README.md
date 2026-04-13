@@ -15,27 +15,29 @@ Este proyecto es un microservicio desarrollado en Django y Django REST Framework
 
 Sigue estos pasos para levantar el microservicio en tu máquina local:
 
-1. **Clonar el repositorio:**
+**Clonar el repositorio:**
    cd ecommerce-api-catalogo
-Instalar las dependencias:
-
+   
+**Instalar las dependencias:**
 
 pip install django djangorestframework drf-spectacular python-decouple
-Aplicar las migraciones de la base de datos:
 
+**Aplicar las migraciones de la base de datos:**
 
 python manage.py makemigrations 
 python manage.py migrate
-Levantar el servidor de desarrollo:
 
+**Levantar el servidor de desarrollo:**
 
 python manage.py runserver
-Documentación de la API (Swagger)
+
+**Documentación de la API (Swagger)**
+
 Este microservicio cuenta con documentación interactiva autogenerada. Una vez que el servidor esté corriendo, puedes ver y probar todos los endpoints accediendo a:
 
 http://127.0.0.1:8000/api/docs/
 
-ENDPOINTS PRINCIPALES:
+**ENDPOINTS PRINCIPALES:**
 GET /api/products/ Lista todos los productos disponibles y sus precios.
 
 POST /api/products/ Crea un nuevo producto en el catálogo (Fase de inicialización).
