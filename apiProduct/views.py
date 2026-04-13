@@ -10,18 +10,18 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    # Este decorador le dice a Swagger: "Oye, este endpoint espera una lista (many=True) de este serializador"
+    
     @extend_schema(request=ReduceStockActionSerializer(many=True))
     @action(detail=False, methods=['post'], url_path='reduce-stock')
     def reduce_stock(self, request):
-        # many=True le dice que espere una lista de JSONs, no uno solo
+        
         serializer = ReduceStockActionSerializer(data=request.data, many=True)
         
-        # Si falta el ID, la cantidad, o mandaron letras, esto devuelve un error 400 automático
+        
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-        # Si llegó aquí, los datos son perfectos
+        
         valid_items = serializer.validated_data
         
         with transaction.atomic():
