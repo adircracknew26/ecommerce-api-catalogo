@@ -8,5 +8,5 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class ReduceStockActionSerializer(serializers.Serializer):
-    id = serializers.IntegerField(required=True)
-    quantity = serializers.IntegerField(required=True, min_value=1)
+    producto_id = serializers.IntegerField(required=True)
+    cantidad = serializers.IntegerField(required=True, min_value=1)

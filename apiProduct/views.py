@@ -27,13 +27,13 @@ class ProductViewSet(viewsets.ModelViewSet):
         with transaction.atomic():
             for item in valid_items:
                 try:
-                    prod = Product.objects.select_for_update().get(id=item['id'])
-                    if prod.stock < item['quantity']:
+                    prod = Product.objects.select_for_update().get(id=item['producto_id'])
+                    if prod.stock < item['cantidad']:
                         return Response({"error": f"Falta stock para el producto {prod.id}"}, status=status.HTTP_400_BAD_REQUEST)
                     
-                    prod.stock -= item['quantity']
+                    prod.stock -= item['cantidad']
                     prod.save()
                 except Product.DoesNotExist:
-                     return Response({"error": f"El producto {item['id']} no existe"}, status=status.HTTP_404_NOT_FOUND)
+                     return Response({"error": f"El producto {item['producto_id']} no existe"}, status=status.HTTP_404_NOT_FOUND)
                      
         return Response({"message": "Stock reducido con validación estricta"}, status=status.HTTP_200_OK)
